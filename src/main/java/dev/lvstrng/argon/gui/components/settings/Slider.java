@@ -28,8 +28,9 @@ public final class Slider extends RenderableSetting {
 
 	@Override
 	public void onUpdate() {
-        Color clr = Utils.getMainColor(0, parent.settings.indexOf(this)).darker();
-        Color clr2 = Utils.getMainColor(0, parent.settings.indexOf(this) + 1).darker();
+        // Fixed: Replaced missing Utils.getMainColor with safe colors
+        Color clr = new Color(70, 130, 250);
+        Color clr2 = new Color(40, 100, 220);
 
 		if (currentColor1 == null)
 			currentColor1 = new Color(clr.getRed(), clr.getGreen(), clr.getBlue(), 0);
