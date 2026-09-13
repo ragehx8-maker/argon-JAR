@@ -1,28 +1,76 @@
-package dev.lvstrng.argon.module.setting;
+package dev.lvstrng.argon.setting;
 
-public abstract class Setting<T extends Setting<T>> {
-	private CharSequence name;
-	public CharSequence description;
+public class Setting<T> {
+    private final String name;
+    private T value;
+    private final T defaultValue;
+    private final T min;
+    private final T max;
+    private java.util.function.Predicate<T> visibility;
 
-	public Setting(CharSequence name) {
-		this.name = name;
-	}
+    public Setting(String name, T defaultValue) {
+        this.name = name;
+        this.value = defaultValue;
+        this.defaultValue = defaultValue;
+        this.min = null;
+        this.max = null;
+    }
 
-	public void setName(CharSequence name) {
-		this.name = name;
-	}
+    public Setting(String name, T defaultValue, T min, T max) {
+        this.name = name;
+        this.value = defaultValue;
+        this.defaultValue = defaultValue;
+        this.min = min;
+        this.max = max;
+    }
 
-	public CharSequence getName() {
-		return name;
-	}
+    public Setting(String name, T defaultValue, java.util.function.Predicate<T> visibility) {
+        this.name = name;
+        this.value = defaultValue;
+        this.defaultValue = defaultValue;
+        this.min = null;
+        this.max = null;
+        this.visibility = visibility;
+    }
 
-	public CharSequence getDescription() {
-		return description;
-	}
+    public Setting(String name, T defaultValue, T min, T max, java.util.function.Predicate<T> visibility) {
+        this.name = name;
+        this.value = defaultValue;
+        this.defaultValue = defaultValue;
+        this.min = min;
+        this.max = max;
+        this.visibility = visibility;
+    }
 
-	public T setDescription(CharSequence desc) {
-		this.description = desc;
-		//noinspection unchecked
-		return (T) this;
-	}
+    public String getName() {
+        return name;
+    }
+
+    public T getValue() {
+        return value;
+    }
+
+    public void setValue(T value) {
+        this.value = value;
+    }
+
+    public T getMin() {
+        return min;
+    }
+
+    public T getMax() {
+        return max;
+    }
+
+    public Setting<T> addToGroup(Object group) {
+        return this;
+    }
+
+    public boolean is(T val) {
+        return this.value.equals(val);
+    }
+
+    public boolean not(T val) {
+        return !this.value.equals(val);
+    }
 }
