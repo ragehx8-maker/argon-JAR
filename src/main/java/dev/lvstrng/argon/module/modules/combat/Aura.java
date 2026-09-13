@@ -61,13 +61,13 @@ import dev.lvstrng.argon.gui.notification.Notification;
 import dev.lvstrng.argon.injection.accesors.ILivingEntity;
 import dev.lvstrng.argon.setting.Setting;
 import dev.lvstrng.argon.setting.impl.SettingGroup;
-import dev.lvstrng.argon.utility.Timer;
-import dev.lvstrng.argon.utility.interfaces.IOtherClientPlayerEntity;
-import dev.lvstrng.argon.utility.math.MathUtility;
-import dev.lvstrng.argon.utility.player.InteractionUtility;
-import dev.lvstrng.argon.utility.player.InventoryUtility;
-import dev.lvstrng.argon.utility.player.PlayerUtility;
-import dev.lvstrng.argon.utility.render.Render3DEngine;
+import dev.lvstrng.argon.utils.Timer;
+import dev.lvstrng.argon.utils.interfaces.IOtherClientPlayerEntity;
+import dev.lvstrng.argon.utils.math.MathUtility;
+import dev.lvstrng.argon.utils.player.InteractionUtility;
+import dev.lvstrng.argon.utils.player.InventoryUtility;
+import dev.lvstrng.argon.utils.player.PlayerUtility;
+import dev.lvstrng.argon.utils.render.Render3DEngine;
 
 public class Aura extends Module {
    private final AuraRotationManager rotationManager;
@@ -856,4 +856,4 @@ public class Aura extends Module {
          return this == OLD ? "1.8" : "1.9";
       }
    }
-}
+   }
