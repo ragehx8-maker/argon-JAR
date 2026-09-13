@@ -26,6 +26,7 @@ public final class ModuleManager implements ButtonListener {
 
 	public void addModules() {
 		//Combat
+		add(new Aura());
 		add(new AimAssist());
 		add(new AnchorMacro());
 		add(new AutoCrystal());
@@ -43,7 +44,8 @@ public final class ModuleManager implements ButtonListener {
 		add(new ShieldDisabler());
 		add(new TotemOffhand());
 		add(new AutoJumpReset());
-        add(new AutoLava());
+		add(new AutoLava());
+		
 		//Misc
 		add(new Prevent());
 		add(new AutoXP());
