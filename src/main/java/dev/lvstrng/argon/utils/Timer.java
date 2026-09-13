@@ -1,9 +1,9 @@
-package dev.lvstrng.argon.utils;
+package dev.lvstrng.argon.util;
 
-public final class Timer {
+public final class TimerUtils {
     private long lastMS;
 
-    public Timer() {
+    public TimerUtils() {
         this.reset();
     }
 
