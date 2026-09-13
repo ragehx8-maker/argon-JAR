@@ -74,7 +74,9 @@ public final class StringBox extends RenderableSetting {
                     RenderUtils.renderRoundedOutline(context, new Color(50, 50, 50, 255), startX + 10, screenMidY + 5, startX + (width - 10), screenMidY + 25, 5, 5, 5, 5, 2, 20);
 
                     TextRenderer.drawString(content, context, startX + 15, screenMidY + 8, new Color(245, 245, 245, 255).getRGB());
-                    context.fill(startX, screenMidY, startX + width, screenMidY + 1, Utils.getMainColor(255, 1).getRGB());
+                    
+                    // Fixed: Replaced missing Utils.getMainColor with a safe accent color
+                    context.fill(startX, screenMidY, startX + width, screenMidY + 1, new Color(100, 150, 255, 255).getRGB());
 
                     RenderUtils.scaledProjection();
                 }
@@ -118,5 +120,4 @@ public final class StringBox extends RenderableSetting {
         }
         super.mouseClicked(mouseX, mouseY, button);
     }
-
 }
